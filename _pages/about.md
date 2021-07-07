@@ -8,18 +8,32 @@ redirect_from:
   - /about.html
 ---
 
-Hi, my name is Yuchong Geng. I am a second year MEng student at Cornell University. My current research focouses on edge computing with topics ranging from edge datacenters to edge Machine Learning for robotics. I am fortunate to be advised by and work with [Prof. A. Kevin Tang](https://www.ece.cornell.edu/faculty-directory/kevin-tang) and [Prof. Sandeep Chinchali](https://www.ece.utexas.edu/people/faculty/sandeep-chinchali). Previsouly, I received a BS degree in Electrical Engineering from University of California, Davis. During my study there, I was fortunate to be mentored by [Prof. Omeed Momeni](https://faculty.engineering.ucdavis.edu/momeni/). 
+Hi, my name is Yuchong Geng. I am a second year MEng student at Cornell University. My current research focuses on edge computing with topics ranging from edge datacenters to edge Machine Learning for robotics. I am fortunate to be advised by and work with [Prof. A. Kevin Tang](https://www.ece.cornell.edu/faculty-directory/kevin-tang) and [Prof. Sandeep Chinchali](https://www.ece.utexas.edu/people/faculty/sandeep-chinchali). Previsouly, I received a BS degree in Electrical Engineering from University of California, Davis, where I was fortunate to be mentored by [Prof. Omeed Momeni](https://faculty.engineering.ucdavis.edu/momeni/). 
+
+Research Interests
+======
+
+My research interests include both edge computing system and general machine learning for cloud/edge robotics. Specifically, for the system related topics, I am interested in transforming network providers' access networks to new edge dataceters (access-edge) to support robotics, IoT devices and etc. As for the machine learning side, I am interested in improving the accuracy and performance of cloud/edge robotics with techniques including information/knowledge representation sharing, active learning and etc.
 
 Education
 ======
 
-<img src="/images/conell_logo.png" width="25" height="25"> MEng, ECE, Cornell University
-:   2020/Fall –– 2021/Fall
+<i class="fas fa-university"></i> MEng, ECE, Cornell University. <img src="/images/conell_logo.png" width="25" height="25">
+:   2020/Fall –– 2021/Fall (expected)
 
-<img src="/images/ucdavis_logo.png" width="25" height="25"> BS, EE, UC Davis
+<i class="fas fa-university"></i> BS, EE, UC Davis. <img src="/images/ucdavis_logo.png" width="25" height="25">
 :   2016/Fall –– 2020/Winter
 
+Contact
+======
 
+email: yg534 [at] cornell [dot] edu
+
+Miscellaneous
+======
+
+Skier and snowboarder. ⛷  🏂 
+Learning to play acoustic guitar. 🎸
 
 <!-- A data-driven personal website
 ======
