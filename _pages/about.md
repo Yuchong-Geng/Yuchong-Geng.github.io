@@ -12,13 +12,12 @@ Hi, my name is Yuchong Geng. I am a second year MEng student at Cornell Universi
 
 Education
 ======
-## Master of Engineering, Electrical and Computer Engineering, Cornell University.
 
-* 2020/Fall -- 2021/Fall (expected)
+<i class="fas fa-user-graduate"></i> MEng, ECE, Cornell University
+:   2020/Fall –– 2021/Fall
 
-## Bachelor of Science, Electrical Engineering, UC Davis.
-
-* 2016/Fall -- 2020/Winter
+<i class="fas fa-user-graduate"></i> BS, EE, UC Davis
+:   2016/Fall –– 2020/Winter
 
 
 
