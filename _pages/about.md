@@ -13,7 +13,7 @@ Hi, my name is Yuchong Geng. I am a second year MEng student at Cornell Universi
 Research Interests
 ======
 
-My research interests include both edge computing system and general machine learning for cloud/edge robotics. Specifically, for the system related topics, I am interested in transforming network providers' access networks to new edge dataceters (access-edge) to support robotics, IoT devices and etc. As for the machine learning side, I am interested in improving the accuracy and performance of cloud/edge robotics with techniques including information/knowledge representation sharing, active learning and etc.
+My research interests include both edge computing system and general machine learning for cloud/edge robotics. Specifically, for the system related topics, I am interested in transforming network providers' access networks to new edge datacenters (access-edge) to support mission-critical robotics, IoT devices and etc. As for the machine learning side, I am interested in improving the reliability and performance of cloud/edge robotics with techniques including information/knowledge representation sharing, active learning and etc.
 
 Education
 ======
@@ -27,12 +27,12 @@ Education
 Contact
 ======
 
-email: yg534 [at] cornell [dot] edu
+Email: yg534 [at] cornell [dot] edu
 
 Miscellaneous
 ======
 
-Skier and snowboarder. ⛷  🏂 
+Skier and snowboarder. ⛷  🏂  <br>
 Learning to play acoustic guitar. 🎸
 
 <!-- A data-driven personal website
