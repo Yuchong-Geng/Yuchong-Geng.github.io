@@ -10,6 +10,18 @@ redirect_from:
 
 Hi, my name is Yuchong Geng. I am a second year MEng student at Cornell University <img src="/images/conell_logo.png" width="25" height="25">. My current research focouses on edge computing with topics ranging from edge datacenters to edge Machine Learning for robotics. I am fortunate to be advised by and work with [Prof. A. Kevin Tang](https://www.ece.cornell.edu/faculty-directory/kevin-tang) and [Prof. Sandeep Chinchali](https://www.ece.utexas.edu/people/faculty/sandeep-chinchali). Previsouly, I received a BS degree in Electrical Engineering from University of California, Davis <img src="/images/ucdavis_logo.png" width="25" height="25">. During my study there, I was fortunate to be mentored by [Prof. Omeed Momeni](https://faculty.engineering.ucdavis.edu/momeni/). 
 
+Education
+======
+## Master of Engineering, Electrical and Computer Engineering, Cornell University.
+
+* 2020/Fall -- 2021/Fall (expected)
+
+## Bachelor of Science, Electrical Engineering, UC Davis.
+
+* 2016/Fall -- 2020/Winter
+
+
+
 <!-- A data-driven personal website
 ======
 Like many other Jekyll-based GitHub Pages templates, academicpages makes you separate the website's content from its form. The content & metadata of your website are in structured markdown files, while various other files constitute the theme, specifying how to transform that content & metadata into HTML pages. You keep these various markdown (.md), YAML (.yml), HTML, and CSS files in a public GitHub repository. Each time you commit and push an update to the repository, the [GitHub pages](https://pages.github.com/) service creates static HTML pages based on these files, which are hosted on GitHub's servers free of charge.
