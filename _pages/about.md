@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-Hi, my name is Yuchong Geng. I am a second year MEng student at Cornell University <img src="/images/conell_logo.png" width="50" height="50">. My current research focouses on edge computing with topics ranging from edge datacenters to edge Machine Learning for robotics. I am fortunate to be advised by and work with [Prof. A. Kevin Tang](https://www.ece.cornell.edu/faculty-directory/kevin-tang) and [Prof. Sandeep Chinchali](https://www.ece.utexas.edu/people/faculty/sandeep-chinchali). Previsouly, I received a BS degree in Electrical Engineering from University of California, Davis. During my study there, I was fortunated to be mentored by [Prof. Omeed Momeni](https://faculty.engineering.ucdavis.edu/momeni/). 
+Hi, my name is Yuchong Geng. I am a second year MEng student at Cornell University <img src="/images/conell_logo.png" width="25" height="25">. My current research focouses on edge computing with topics ranging from edge datacenters to edge Machine Learning for robotics. I am fortunate to be advised by and work with [Prof. A. Kevin Tang](https://www.ece.cornell.edu/faculty-directory/kevin-tang) and [Prof. Sandeep Chinchali](https://www.ece.utexas.edu/people/faculty/sandeep-chinchali). Previsouly, I received a BS degree in Electrical Engineering from University of California, Davis <img src="/images/ucdavis_logo.png" width="25" height="25">. During my study there, I was fortunated to be mentored by [Prof. Omeed Momeni](https://faculty.engineering.ucdavis.edu/momeni/). 
 
 <!-- A data-driven personal website
 ======
