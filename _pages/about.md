@@ -21,7 +21,7 @@ Education
 <i class="fas fa-university"></i> MEng, ECE, Cornell University. <img src="/images/conell_logo.png" width="25" height="25">
 :   2020/Fall –– 2021/Fall (expected)
 
-<i class="fas fa-university"></i> BS, EE, UC Davis. <img src="/images/ucdavis_logo.png" width="25" height="25">
+<i class="fas fa-university"></i> BS, EE, UC Davis. <img src="/images/ucdavis_logo.svg" width="25" height="25">
 :   2016/Fall –– 2020/Winter
 
 Contact
