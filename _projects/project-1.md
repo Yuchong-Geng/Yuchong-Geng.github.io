@@ -1,6 +1,6 @@
 ---
 title: "In-progress project"
-excerpt: "An information sharing system for cloud robotics. <br/><img src='/images/p2p_project_img.png' width="500" height="300">"
+excerpt: "An information sharing system for cloud robotics. <br/><img src='/images/p2p_project_img.png' width="500" height="300">
 collection: projects
 ---
 
