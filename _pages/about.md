@@ -13,7 +13,7 @@ Hi, my name is Yuchong Geng. I am a second year MEng student at Cornell Universi
 Research Interests
 ======
 
-Robotics
+Robotics <br>
 Edge Computing
 
 Education
