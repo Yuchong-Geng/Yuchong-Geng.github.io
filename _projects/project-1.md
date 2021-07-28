@@ -1,6 +1,6 @@
 ---
 title: "In-progress project"
-excerpt: "A decentralized learning framework for cloud robotics to exchange ML training data. <br/><img src='/images/p2p_project_img.png'>"
+excerpt: "A decentralized learning framework for cloud robotics to trade ML training data. <br/><img src='/images/p2p_project_img.png'>"
 collection: projects
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "HomePi"
-excerpt: "HomePi is an integreted smart home system based on an Raspberry Pi <br/><img src='/images/homePi_project_img.png'>"
+excerpt: "HomePi is an integreted smart home system based on an Raspberry Pi with powerful edge computing capability (Edge TPU) <br/><img src='/images/homePi_project_img.png'>"
 collection: projects
 ---
 
