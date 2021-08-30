@@ -35,5 +35,7 @@ Miscellaneous
 ======
 
 Skier and snowboarder. ⛷  🏂  <br>
-Learning to play acoustic guitar. 🎸
+Tennis player. 🎾  <br>
+Learning to play acoustic guitar. 🎸  
+
 
