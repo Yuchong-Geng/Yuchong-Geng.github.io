@@ -5,12 +5,10 @@ permalink: /publications/
 author_profile: true
 ---
 
-{% if author.googlescholar %}
-  You can also find my articles on <u><a href="{{author.googlescholar}}">my Google Scholar profile</a>.</u>
-{% endif %}
-
 {% include base_path %}
 
-{% for post in site.publications reversed %}
-  {% include archive-single.html %}
-{% endfor %}
+# Publications
+
+## Conference
+
+- **Yuchong Geng**, Dongyue Zhang, Po-han Li, Oguzhan Akcin, Ao Tang, and Sandeep P. Chinchali. Decentralized sharing and valuation of fleet robotic data. *In 5th Annual Conference on Robot Learning, Blue Sky Submission Track*, 2021 [Paper Link](https://openreview.net/forum?id=BozDOMTsSNd)
