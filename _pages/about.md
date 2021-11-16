@@ -8,14 +8,20 @@ redirect_from:
   - /about.html
 ---
 
-Hi, my name is Yuchong Geng. I am a second year MEng student at Cornell University. My current research focuses on edge computing with topics ranging from edge datacenters to edge Machine Learning for robotics. I am fortunate to be advised by and work with [Prof. A. Kevin Tang](https://www.ece.cornell.edu/faculty-directory/kevin-tang) and [Prof. Sandeep Chinchali](https://www.ece.utexas.edu/people/faculty/sandeep-chinchali). Previsouly, I received a BS degree in Electrical Engineering from University of California, Davis, where I was fortunate to be mentored by [Prof. Omeed Momeni](https://faculty.engineering.ucdavis.edu/momeni/). 
+Hi, my name is Yuchong Geng. I am a second year MEng student at Cornell University. I am fortunate to be advised by and work with [Prof. A. Kevin Tang](https://www.ece.cornell.edu/faculty-directory/kevin-tang) at Cornell and [Prof. Sandeep Chinchali](https://www.ece.utexas.edu/people/faculty/sandeep-chinchali) at UT Austin. Previsouly, I received a BS degree in Electrical Engineering from University of California, Davis, where I was fortunate to be mentored by [Prof. Omeed Momeni](https://faculty.engineering.ucdavis.edu/momeni/). 
+
+News
+======
+
+- **11/2021:** I gave a talk at [CoRL 2021](https://www.robot-learning.org/) hosted in London, UK.
+- **10/2021:** A paper about my research work during my MEng study at Cornell has been accepted to [CoRL 2021](https://www.robot-learning.org/).
 
 Research Interests
 ======
 
-- Edge Computing
 - Robotics 
 - Machine Learning
+- Systems
 
 Education
 ======

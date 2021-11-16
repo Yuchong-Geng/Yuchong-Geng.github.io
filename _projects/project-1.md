@@ -1,18 +1,16 @@
 ---
-title: "Operating System Practicum"
-excerpt: "**Keywords:** Operating System, C Programming <br/><img src='/images/os_prac_project_img.png'>"
+title: "Foundation of Robotics Practicum"
+excerpt: "**Keywords:** Robotics, ROS <br/><img src='/images/robotics_project_img.png'>"
 collection: projects
 ---
 
-This is an OS project course offered at Cornell. 
+This is a series of projects related to various essential topics related to Robotics. 
 
-Topics include:
-- queue
-- multi-threading and synchronization
-- multi-level feedback scheduler
-- user-level interrupts
-- make, testing, …
-- file system cache
-- file system
+Specific topics include:
+- ROS Fundamentals
+- Robot Kinematics
+- State Estimation
+- Motion Planning
+- Control
 
-All codes are written in C. Github repo for this project is kept private due to course policy. 
+This project include both theoretical analysis/calculation and associated programming sections. All codes are written in Python. Github repo for this project is kept private due to course policy. 
