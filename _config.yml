@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Yuchong Geng"
 title_separator          : "-"
 name                     : &name "Yuchong Geng"
-description              : &description "MEng in ECE @ Cornell. Fall 2022 PhD Applicant"
+description              : &description "PhD in ECE @ Cornell"
 url                      : https://Yuchong-Geng.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "Yuchong-Geng/Yuchong-Geng.github.io"
@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "Yuchong Geng"
   avatar           : "profile.jpg"
-  bio              : "MEng in ECE @ Cornell. Fall 2022 PhD Applicant"
+  bio              : "PhD in ECE @ Cornell"
   location         : "Ithaca, NY"
   employer         :
   pubmed           : 
