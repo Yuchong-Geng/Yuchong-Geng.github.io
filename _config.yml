@@ -245,6 +245,24 @@ defaults:
       layout: talk
       author_profile: true
       share: true
+  # _courses
+  - scope:
+      path: ""
+      type: courses
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comment: true
+  # _miscellaneous
+  - scope:
+      path: ""
+      type: miscellaneous
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comment: true
 
 
 # Sass/SCSS
