@@ -36,42 +36,12 @@ Education
 <i class="fas fa-university"></i> BS, EE, UC Davis. <img src="/images/ucdavis_logo.svg" width="25" height="25">
 :   2016/Fall –– 2020/Winter
 
-Courses Taken
-======
-
-Computer Systems:
-
-**CS 4410** Operating Systems <br>
-**CS 5411** Practicum in Operating Systems <br>
-**CS 4450** Introduction to Computer Networks <br>
-**ECE 4450** Computer Networks & Telocommunications <br>
-**ECE 5710** Datacenter Computing <br>
-**ECE 5725** Embedded Operating Systems <br>
-
-AI/ML:
-
-**ECE 5420** Fundamentals of Machine Learning <br>
-
-Others:
-
-**CS 5750** Foudations of Robotics <br>
-
-Courses TA'ed
-======
-
-**ECE 4450** Computer Networks & Telocommunications, 2022 Fall <br>
-
 
 Contact
 ======
 
 Email: yg534 [at] cornell [dot] edu
 
-Miscellaneous
-======
 
-Skier. ⛷ <br>
-Play tennis. 🎾  <br>
-Learning to play acoustic guitar. 🎸  
 
 
