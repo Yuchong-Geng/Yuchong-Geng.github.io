@@ -8,14 +8,14 @@ redirect_from:
   - /about.html
 ---
 
-Hi, my name is Yuchong Geng. I am a first-year PhD student at Cornell University. I am fortunate to be advised by [Prof. A. Kevin Tang](https://www.ece.cornell.edu/faculty-directory/kevin-tang) at Cornell.
+Hi, my name is Yuchong Geng. I am a first-year PhD student in ECE at Cornell University. I am fortunate to be advised by [Prof. A. Kevin Tang](https://www.ece.cornell.edu/faculty-directory/kevin-tang).
 
 Previsouly, I received an <strong>MEng in ECE</strong> from Cornell University and a <strong>BS in Electrical Engineering</strong> from University of California, Davis. 
 
 Research Interests
 ======
 
-My research interests lie in Computer System, Artificial Intelligence, and the intersection between those two. One example is an intelligent data sharing framework for fleet robots.
+My research interests lie in Computer System, Artificial Intelligence, and the intersection between those two.
 
 News
 ======
