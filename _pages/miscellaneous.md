@@ -7,5 +7,5 @@ author_profile: true
 
 {% include base_path %}
 
-- Skier. ⛷ <br>
+- Avid skier. ⛷ <br>
 - Tennis player. 🎾  <br>

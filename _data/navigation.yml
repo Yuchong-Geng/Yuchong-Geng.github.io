@@ -18,14 +18,17 @@ main:
   - title: "Courses"
     url: /courses/
 
-  - title: "Projects"
-    url: /projects/
+  - title: "Teaching"
+    url: /teaching/
+
+  # - title: "Projects"
+  #   url: /projects/
     
   - title: "CV"
     url: /cv/
 
-  - title: "Miscellaneous"
-    url: /miscellaneous/
+  # - title: "Miscellaneous"
+  #   url: /miscellaneous/
 
   
 
