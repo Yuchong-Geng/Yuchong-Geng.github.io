@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A Concept-Centric Approach to Multi-Modality Learning</title>
+  <meta name="description" content="A concept-centric multimodal framework with a shared concept space and modality-specific projection models for efficient, interpretable learning." />
+  <link rel="stylesheet" href="../stylesheet.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <table width="100%" cellspacing="0" cellpadding="0">
+    <tr>
+      <td align="center">
+        <p class="name">A Concept-Centric Approach to Multi-Modality Learning</p>
+
+        <p>
+          <a href="mailto:yg534@cornell.edu">Yuchong Geng</a><sup>1</sup> &nbsp;&nbsp;
+          <a href="mailto:atang@cornell.edu">Ao Tang</a><sup>1</sup>
+        </p>
+
+        <p><sup>1</sup>School of Electrical and Computer Engineering, Cornell University</p>
+
+        <p>
+          <a href="https://arxiv.org/abs/2412.13847">Paper</a> /
+          <a href="https://github.com/Yuchong-Geng/concept-centric-multimodal-learning">Code</a>
+        </p>
+
+        <!-- TL;DR -->
+        <div class="colored-box" style="max-width:900px;margin:16px auto 0 auto;text-align:left;">
+          <p style="margin:0;">
+            <strong>TL;DR:</strong> Humans reuse knowledge across modalities and tasks. This project builds ML systems that do the same by learning reusable concepts in a shared space and connecting multiple modalities through lightweight projection modules.
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <!-- Hero figure -->
+  <table width="100%" cellspacing="0" cellpadding="0" style="margin-top:12px;">
+    <tr>
+      <td align="center">
+        <img src="assets/overall_architecture.png" style="width:100%;max-width:900px;height:auto;" alt="Overall architecture of the concept-centric framework" />
+        <p>Overall architecture: a shared concept space with modality-specific projection modules.</p>
+      </td>
+    </tr>
+  </table>
+
+  <!-- Overview -->
+  <h2>Overview</h2>
+  <p>
+    Modern multimodal models often learn representations that are tightly coupled to a specific set of modalities and tasks.
+    In contrast, our goal is to build a learning system with a persistent store of abstract knowledge that can be reused.
+    We introduce a concept-centric multi-modality learning framework built around a modality-agnostic concept space, together
+    with a set of lightweight projection modules that map each modality into this shared space.
+  </p>
+  <p>
+    Once the concept space is learned, it can be reused as a knowledge base. New modalities can be added by training only
+    their projection modules, rather than retraining the entire system. We evaluate the framework on two representative
+    downstream tasks and show that knowledge-aware projections can converge faster while maintaining competitive performance,
+    with inference performed entirely in the shared concept space.
+  </p>
+
+  <!-- Core idea -->
+  <h2>Core idea</h2>
+  <p>
+    The main contribution is a reusable and interpretable learning system, not a small improvement on a single benchmark.
+    The framework separates <strong>persistent conceptual knowledge</strong> from <strong>modality-specific perception</strong>,
+    enabling modular extension and concept-level probing.
+  </p>
+  <ul>
+    <li><strong>Shared concept space:</strong> a modality-agnostic store of abstract knowledge that can be reused across tasks and domains.</li>
+    <li><strong>Lightweight projections:</strong> independent modules map raw inputs from each modality into the shared space.</li>
+    <li><strong>Inference in concept space:</strong> downstream reasoning operates on explicit concept representations rather than raw features.</li>
+    <li><strong>Interpretable probing:</strong> concept relations can be inspected through direct queries, supporting transparency and auditing.</li>
+  </ul>
+
+  <!-- How it works -->
+  <h2>How it works</h2>
+  <p>
+    The system learns a concept space that represents structured, modality-agnostic knowledge. Each modality is paired with
+    a projection module that aligns its inputs to the shared space. After training, the learned concept space can be reused,
+    and adding a new modality requires training only a new projection module while keeping the existing knowledge fixed.
+  </p>
+  <ul>
+  <li><strong>Learn a concept space:</strong> construct a modality-agnostic knowledge store that captures abstract concept entailment structure.</li>
+  <li><strong>Align modalities:</strong> train lightweight projection modules to map raw inputs into the shared concept space.</li>
+  <li><strong>Add new modalities:</strong> plug in a new projection module without changing the existing concept space or other modalities.</li>
+  <li><strong>Probe concepts:</strong> query concept-level representations and relations directly for interpretability.</li>
+</ul>
+
+  <!-- Why this matters -->
+  <h2>Why this matters</h2>
+  <div class="colored-box">
+    <p>
+      <strong>From transient to persistent:</strong> Many models store knowledge implicitly in dense parameters and activate it only in response to inputs.
+      Our framework stores abstract knowledge explicitly in a shared space, making it durable and reusable.
+    </p>
+    <p>
+      <strong>Cross-modality reuse:</strong> Once the concept space is learned, modality-specific modules can align to it instead of relearning
+      representations from scratch, which supports efficient adaptation.
+    </p>
+    <p>
+      <strong>Interpretability by design:</strong> Concept-level representations and relations can be inspected through direct queries, enabling
+      transparent analysis and targeted debugging.
+    </p>
+  </div>
+
+  <!-- Results -->
+  <h2>Figures</h2>
+  <table cellspacing="10" style="width:100%;max-width:900px;margin:auto;">
+    <tr>
+      <td valign="top">
+        <img src="assets/learning_curves.png" style="width:100%;max-width:900px;height:auto;" alt="Learning curves comparing projection models and baselines" />
+        <p>
+          Learning curves: projection modules converge faster by aligning to a shared concept space rather than learning representations from scratch.
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+        <img src="assets/entailment_heatmaps.png" style="width:100%;max-width:900px;height:auto;" alt="Cross-modality alignment heatmaps" />
+        <p>
+          Out-of-the-box alignment across modalities: although projection modules are trained independently, adapting to the shared concept space yields consistent concept entailment structure across image and multilingual text.
+        </p>
+      </td>
+    </tr>
+  </table>
+
+  <!-- BibTeX -->
+  <h2>BibTeX</h2>
+  <pre>
+@article{geng2026concept,
+  title     = {A Concept-Centric Approach to Multi-Modality Learning},
+  author    = {Geng, Yuchong and Tang, Ao},
+  journal   = {Transactions on Machine Learning Research},
+  year      = {2026}
+}
+  </pre>
+
+  <!-- Contact -->
+  <h2>Contact</h2>
+  <p>
+    Questions? Email <a href="mailto:yg534@cornell.edu">yg534@cornell.edu</a>.
+  </p>
+</body>
+</html>

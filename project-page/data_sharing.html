@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Decentralized Sharing and Valuation of Fleet Robotic Data</title>
+  <meta name="description" content="A decentralized, privacy-aware framework for robots to predict, value, and selectively share high-utility training data across a peer-to-peer fleet." />
+  <link rel="stylesheet" href="../stylesheet.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <table width="100%" cellspacing="0" cellpadding="0">
+    <tr>
+      <td align="center">
+        <p class="name">Decentralized Sharing and Valuation of Fleet Robotic Data</p>
+
+        <p>
+          <a href="mailto:yg534@cornell.edu">Yuchong Geng</a><sup>1</sup> &nbsp;&nbsp;
+          <a href="mailto:dz356@cornell.edu">Dongyue Zhang</a><sup>1</sup> &nbsp;&nbsp;
+          <a href="mailto:pohanli@utexas.edu">Po-han Li</a><sup>2</sup> &nbsp;&nbsp;
+          <a href="mailto:oguzhanakcin@utexas.edu">Oguzhan Akcin</a><sup>2</sup> &nbsp;&nbsp;
+          <a href="mailto:atang@cornell.edu">Ao Tang</a><sup>1</sup> &nbsp;&nbsp;
+          <a href="mailto:sandeepc@utexas.edu">Sandeep P. Chinchali</a><sup>2</sup>
+        </p>
+
+        <p><sup>1</sup>Cornell University &nbsp;&nbsp; <sup>2</sup>The University of Texas at Austin</p>
+
+        <p>
+          <a href="https://proceedings.mlr.press/v164/geng22a.html">Paper</a>
+        </p>
+
+        <!-- TL;DR -->
+        <div class="colored-box" style="max-width:900px;margin:16px auto 0 auto;text-align:left;">
+          <p style="margin:0;">
+            <strong>TL;DR:</strong> Robots deployed across different environments observe very different data.
+            We propose a decentralized, privacy-aware framework in which robots learn to predict which local experiences
+            are valuable to other robots in the fleet, selectively share only a small fraction of that data,
+            and improve learning through peer feedback.
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <!-- Hero figure -->
+  <table width="100%" cellspacing="0" cellpadding="0" style="margin-top:12px;">
+    <tr>
+      <td align="center">
+        <img src="assets/system_model_CoRL.jpg" style="width:100%;max-width:900px;height:auto;" alt="System diagram for decentralized data sharing across a robotic fleet" />
+        <p>
+          Decentralized sharing: robots predict which local experiences are valuable to peers, share selectively under privacy constraints, and use feedback to improve.
+        </p>
+      </td>
+    </tr>
+  </table>
+
+  <!-- Overview -->
+  <h2>Overview</h2>
+  <p>
+    Robotic fleets deployed across cities, homes, and roads experience highly heterogeneous environments.
+    Conditions that are rare and safety-critical for one robot (e.g., snow, unusual traffic patterns, or construction zones)
+    may be commonplace for another. Aggregating all sensory data centrally is costly, slow, and often infeasible due to
+    bandwidth, privacy, and organizational constraints.
+  </p>
+  <p>
+    We propose a decentralized, peer-to-peer framework that enables robots to proactively share only the most valuable local experiences with their peers.
+    Each robot learns a <strong>global utility (GU) sharing model</strong> that predicts how useful each observation will be to other robots,
+    rather than relying on centralized coordination. A local privacy filter limits sensitive content, and peers provide feedback (e.g., out-of-distribution signals)
+    that improves valuation and sharing over time.
+  </p>
+
+  <!-- Core idea -->
+  <h2>Core idea</h2>
+  <ul>
+    <li><strong>Selective sharing:</strong> robots transmit only a small, high-utility fraction of their data.</li>
+    <li><strong>Predictive data valuation:</strong> a learned GU model estimates how valuable each observation will be to peers.</li>
+    <li><strong>Decentralized learning:</strong> sharing decisions are made locally without a central coordinator.</li>
+    <li><strong>Privacy by design:</strong> a local filter removes or obfuscates sensitive information before sharing.</li>
+    <li><strong>Feedback-driven improvement:</strong> peer OoD signals refine future sharing decisions.</li>
+  </ul>
+
+  <!-- How it works -->
+  <h2>How it works</h2>
+  <p>
+    In each round, a robot evaluates local observations using its GU model to predict their utility to peers,
+    shares only the top-ranked subset after privacy filtering, and receives feedback that improves future valuation.
+  </p>
+  <ul>
+    <li><strong>Local inference:</strong> a robot processes a new observation with its task model and produces embeddings and predictions.</li>
+    <li><strong>Utility estimation:</strong> the GU model predicts how valuable the observation will be to peers.</li>
+    <li><strong>Selective sharing:</strong> only top-ranked data is transmitted after privacy filtering.</li>
+    <li><strong>Peer feedback:</strong> recipients score shared data via OoD detection and return feedback.</li>
+    <li><strong>Adaptive valuation:</strong> feedback refines the GU model over successive rounds.</li>
+  </ul>
+
+  <!-- Results -->
+  <h2>Figures</h2>
+  <table cellspacing="10" style="width:100%;max-width:900px;margin:auto;">
+    <tr>
+      <td valign="top">
+        <img src="assets/acc_only.jpeg" style="width:100%;max-width:900px;height:auto;" alt="Toy experiment accuracy over sharing rounds" />
+        <p>
+          Toy experiment: learned data valuation rapidly improves model accuracy across sharing rounds, outperforming random sharing and approaching an oracle upper bound.
+        </p>
+      </td>
+    </tr>
+  </table>
+
+  <!-- Why now -->
+  <h2>Why this matters today</h2>
+  <div class="colored-box">
+    <p>
+      Modern robotic fleets, including autonomous vehicles, are deployed across diverse cities and environments.
+      Rare but safety-critical conditions such as snow, unusual road layouts, and long-tail edge cases are unevenly distributed across the fleet.
+    </p>
+    <p>
+      This work anticipates the need for decentralized mechanisms that allow robots to discover, value, and exchange such experiences efficiently without centralized data aggregation.
+      As large-scale robot deployments accelerate, selective and privacy-aware data sharing becomes a key bottleneck for continual learning at scale.
+    </p>
+  </div>
+
+  <!-- Open questions -->
+  <h2>Open research questions</h2>
+  <div class="colored-box">
+    <p><strong>Data valuation:</strong> how should we fairly price data contributions in a decentralized fleet?</p>
+    <p><strong>Privacy-utility trade-offs:</strong> how can robots share useful data while protecting sensitive information?</p>
+    <p><strong>Convergence:</strong> when does the sharing protocol reach a steady state across peers?</p>
+    <p><strong>Discovery at scale:</strong> can robots quickly find peers likely to have valuable data?</p>
+  </div>
+
+  <!-- BibTeX -->
+  <h2>BibTeX</h2>
+  <pre>
+@InProceedings{pmlr-v164-geng22a,
+  title = 	 {Decentralized Sharing and Valuation of Fleet Robotic Data},
+  author =       {Geng, Yuchong and Zhang, Dongyue and Li, Po-han and Akcin, Oguzhan and Tang, Ao and Chinchali, Sandeep P.},
+  booktitle = 	 {Proceedings of the 5th Conference on Robot Learning},
+  pages = 	 {1795--1800},
+  year = 	 {2022},
+  editor = 	 {Faust, Aleksandra and Hsu, David and Neumann, Gerhard},
+  volume = 	 {164},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {08--11 Nov},
+  publisher =    {PMLR},
+  pdf = 	 {https://proceedings.mlr.press/v164/geng22a/geng22a.pdf},
+  url = 	 {https://proceedings.mlr.press/v164/geng22a.html}
+}
+  </pre>
+
+  <!-- Contact -->
+  <h2>Contact</h2>
+  <p>
+    Questions? Email <a href="mailto:yg534@cornell.edu">yg534@cornell.edu</a> or <a href="mailto:sandeepc@utexas.edu">sandeepc@utexas.edu</a>.
+  </p>
+</body>
+</html>
