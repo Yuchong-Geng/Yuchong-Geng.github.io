@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atelier: A Human-Owned Protocol for Auditable AI-Assisted Research</title>
+  <meta name="description" content="A project summary for Atelier, a file-backed protocol for auditable AI-assisted research workflows." />
+  <link rel="stylesheet" href="../stylesheet.css" />
+</head>
+
+<body>
+  <table width="100%" cellspacing="0" cellpadding="0">
+    <tr>
+      <td align="center">
+        <p class="name">Atelier: A Human-Owned Protocol for Auditable AI-Assisted Research</p>
+
+        <div class="colored-box" style="max-width:900px;margin:16px auto 0 auto;text-align:left;">
+          <p style="margin:0;">
+            <strong>TL;DR:</strong> Atelier is a project-local, file-backed protocol for AI-assisted research. It keeps the researcher in charge, routes agent work through manager, worker, and critic roles, and turns agent activity into auditable evidence-backed claims.
+          </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <table width="100%" cellspacing="0" cellpadding="0" style="margin-top:12px;">
+    <tr>
+      <td align="center">
+        <img src="assets/atelier-system-overview.png" style="width:100%;max-width:420px;height:auto;" alt="Layered Atelier protocol diagram from the paper" />
+        <p>Layered protocol overview from the paper: the researcher steers, the manager resolves work, sub-agents operate in scoped packets, and the audit trace records reports, resolutions, evidence, claims, and briefs.</p>
+      </td>
+    </tr>
+  </table>
+
+  <h2>Overview</h2>
+  <p>
+    AI assistants can now propose experiments, draft code, summarize literature, and turn open-ended prompts into confident research-shaped artifacts. Atelier asks a different question: can the loop that produced those artifacts be trusted as a research argument?
+  </p>
+  <p>
+    The system targets the protocol layer between freeform prompting and fully autonomous research agents. A project is organized through durable files that separate researcher intent, agent reports, manager resolutions, evidence records, and accepted claims. The result is a reconstructible chain from vague intent to scoped work, critique, evidence, and claim updates.
+  </p>
+
+  <h2>Core idea</h2>
+  <p>
+    The paper frames two common failure modes in AI-assisted research. First, a loop can become post-hoc optimization: try many ideas, keep the one that scores well, then write a story around the metric. Second, a loop can become brittle: hallucinated sources, drifted scope, or weak derivations pass through because reports, observations, and accepted evidence are not separated.
+  </p>
+  <p>
+    Atelier addresses those failures by making the research chain explicit. Metrics are treated as evidence inside a broader argument, the researcher keeps authority over claims, and agent autonomy is bounded by scoped packets and recorded review.
+  </p>
+
+  <h2>How it works</h2>
+  <ul>
+    <li><strong>Human ownership:</strong> the researcher owns direction, claim acceptance, and final judgment.</li>
+    <li><strong>Manager resolution:</strong> one manager scopes work packets and turns reports into accepted project state.</li>
+    <li><strong>Bounded packets:</strong> workers and critics operate inside explicit task scopes with expected outputs.</li>
+    <li><strong>Evidence trail:</strong> observations, decisions, reports, and claim updates live in durable files.</li>
+  </ul>
+
+  <h2>Design principles</h2>
+  <ul>
+    <li><strong>Governed discovery:</strong> research stays tied to problem framing, assumptions, falsification criteria, evidence, and claim scope.</li>
+    <li><strong>Human-owned steering:</strong> agents may propose, critique, and run bounded work, but they do not silently redefine the research question.</li>
+    <li><strong>Constructive dissent:</strong> critics surface unsupported assumptions, missing evidence, scope drift, and weak experiment designs before they become accepted claims.</li>
+  </ul>
+
+  <h2>Research lifecycle</h2>
+  <p>
+    Atelier starts where research often starts, with a vague idea. Orientation turns that idea into a working problem statement, evaluation criteria, assumptions, a source map, and a next move. Later phases cover problem framing, related-work mapping, evaluation design, method development, experiment planning, evidence evaluation, claim update, and deliverable packaging.
+  </p>
+  <p>
+    The lifecycle is deliberately looped rather than linear. New evidence, source checks, or critic findings can send the project back to an earlier phase. This keeps metrics and experiments inside a broader research argument instead of letting a project optimize for a result and write the story afterward.
+  </p>
+
+  <h2>Why this matters</h2>
+  <div class="colored-box">
+    <p>
+      Freeform AI-assisted research can let activity outpace evidence. Atelier is designed to keep the chain visible: what was asked, what was observed, what was accepted, and what remains uncertain.
+    </p>
+    <p>
+      The goal is not to replace the researcher with an autonomous scientist. The goal is to make AI-assisted research work more inspectable, recoverable, and reviewable while preserving human authority over the project.
+    </p>
+  </div>
+
+  <h2>Pilot evaluation</h2>
+  <p>
+    A pilot study compares Atelier with a freeform agent baseline on a simulated early-stage research task. Both conditions receive the same multi-turn user interaction around a NeuroGolf 2026 research direction. The baseline writes a final research plan from the conversation, while Atelier runs either orientation alone or the full manager-worker-critic lifecycle.
+  </p>
+  <p>
+    Outputs are scored on 20-point rubrics covering problem framing, constraint capture, evaluation design, recoverability, and related dimensions. In the orientation sweep, the mean score rises from 16.25 to 19.5 out of 20. In the lifecycle sweep, the mean score rises from 16.5 to 19.25 out of 20. The gains hold across four model and effort settings.
+  </p>
+
+  <div style="max-width:760px;margin:16px auto;overflow-x:auto;">
+    <table class="results-table" cellspacing="0">
+      <thead>
+        <tr>
+          <th>Setting</th>
+          <th>Baseline</th>
+          <th>Atelier</th>
+          <th>Gain</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table-section">
+          <td colspan="4">Orientation sweep (/20)</td>
+        </tr>
+        <tr>
+          <td>GPT-5.2, medium</td>
+          <td>15</td>
+          <td>19</td>
+          <td>+4</td>
+        </tr>
+        <tr>
+          <td>GPT-5.4-Mini, medium</td>
+          <td>15</td>
+          <td>19</td>
+          <td>+4</td>
+        </tr>
+        <tr>
+          <td>GPT-5.5, low</td>
+          <td>17</td>
+          <td>20</td>
+          <td>+3</td>
+        </tr>
+        <tr>
+          <td>GPT-5.5, medium</td>
+          <td>18</td>
+          <td>20</td>
+          <td>+2</td>
+        </tr>
+        <tr class="mean-row">
+          <td>Mean across four settings</td>
+          <td>16.25</td>
+          <td>19.5</td>
+          <td>+3.25</td>
+        </tr>
+        <tr class="table-section">
+          <td colspan="4">Lifecycle sweep (/20)</td>
+        </tr>
+        <tr>
+          <td>GPT-5.2, medium</td>
+          <td>16</td>
+          <td>19</td>
+          <td>+3</td>
+        </tr>
+        <tr>
+          <td>GPT-5.4-Mini, medium</td>
+          <td>18</td>
+          <td>20</td>
+          <td>+2</td>
+        </tr>
+        <tr>
+          <td>GPT-5.5, low</td>
+          <td>16</td>
+          <td>18</td>
+          <td>+2</td>
+        </tr>
+        <tr>
+          <td>GPT-5.5, medium</td>
+          <td>16</td>
+          <td>20</td>
+          <td>+4</td>
+        </tr>
+        <tr class="mean-row">
+          <td>Mean across four settings</td>
+          <td>16.5</td>
+          <td>19.25</td>
+          <td>+2.75</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:6px;text-align:center;">
+      Pilot study results from the paper.
+    </p>
+  </div>
+
+  <p>
+    The lifecycle runs also produce canonical state, briefs, packets, reports, and resolutions, while the baseline produces only a transcript and final plan. This makes each claim easier to inspect and allows later agents to resume from project state without replaying the original conversation.
+  </p>
+
+  <h2>Current scope</h2>
+  <p>
+    Atelier is an early protocol study rather than a claim that AI systems can replace researchers. The current evaluation is small, manually scored, and based on a simulated research scenario. The next step is broader validation with blind scoring, comparisons against alternative agent stacks, and full-scale research projects with externally verifiable outcomes.
+  </p>
+
+  <h2>Contact</h2>
+  <p>
+    Questions? Email <a href="mailto:yg534@cornell.edu">yg534@cornell.edu</a>.
+  </p>
+</body>
+</html>

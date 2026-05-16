@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Unsupervised Concept Discovery with Dirichlet Concept Diffusion Models</title>
+  <meta name="description" content="A project summary for DCDM, a diffusion-based approach to unsupervised concept discovery through Dirichlet-weighted concept centers." />
+  <link rel="stylesheet" href="../stylesheet.css" />
+</head>
+
+<body>
+  <table width="100%" cellspacing="0" cellpadding="0">
+    <tr>
+      <td align="center">
+        <p class="name">Unsupervised Concept Discovery with Dirichlet Concept Diffusion Models</p>
+
+        <div class="colored-box" style="max-width:900px;margin:16px auto 0 auto;text-align:left;">
+          <p style="margin:0;">
+            <strong>TL;DR:</strong> DCDM asks whether a generative model can discover reusable visual concepts while learning to generate images. It learns concept centers and an input-dependent Dirichlet distribution over them, making concept discovery part of the diffusion objective rather than a post hoc labeling step.
+          </p>
+        </div>
+
+        <blockquote class="quote-callout">
+          <p>"What I cannot create, I do not understand."</p>
+          <cite>Richard Feynman</cite>
+        </blockquote>
+      </td>
+    </tr>
+  </table>
+
+  <table width="100%" cellspacing="0" cellpadding="0" style="margin-top:12px;">
+    <tr>
+      <td align="center">
+        <img src="assets/dcdm-concept-prototypes.png" style="width:100%;max-width:660px;height:auto;" alt="Generated prototypes associated with learned DCDM concept components" />
+        <p>Generated prototypes associated with learned concept components across datasets.</p>
+      </td>
+    </tr>
+  </table>
+
+  <h2>Overview</h2>
+  <p>
+    DCDM studies unsupervised concept discovery in generative modeling. The central question is whether a model that learns to create images can also expose reusable concept components that help explain the images it creates.
+  </p>
+  <p>
+    Instead of adding labels, captions, attributes, or pretrained text-image priors, DCDM learns a set of concept centers directly from data while optimizing a diffusion-based generative objective. For each input, a concept encoder infers a Dirichlet distribution over those centers. The weighted center shapes the forward diffusion mean and conditions the reverse denoising process, so the same objective that trains the generator also creates pressure for stable, reusable visual components to emerge.
+  </p>
+
+  <h2>Core idea</h2>
+  <p>
+    Standard diffusion perturbs all samples toward a single zero-centered Gaussian target. DCDM instead gives each sample a learned concept-dependent path through diffusion. The model infers how much each concept center contributes, then uses the resulting weighted center during both noising and denoising.
+  </p>
+  <figure class="project-figure diffusion-target-figure">
+    <img src="assets/dcdm-diffusion-target-comparison.png" alt="Comparison of standard DDPM and DCDM diffusion targets" />
+    <p>Standard DDPM sends every sample toward a single Gaussian; DCDM routes samples through learned concept centers.</p>
+  </figure>
+  <ul>
+    <li><strong>Concept centers:</strong> learn reusable latent components that capture recurring visual structure.</li>
+    <li><strong>Dirichlet composition:</strong> represent each input as a distribution over multiple concepts rather than a single hard cluster.</li>
+    <li><strong>Diffusion integration:</strong> thread the concept mixture through the noising and denoising dynamics.</li>
+    <li><strong>Unsupervised discovery:</strong> avoid class labels, attribute annotations, captions, and semantic concept supervision.</li>
+  </ul>
+
+  <h2>How it works</h2>
+  <p>
+    The concept encoder maps an input image to a Dirichlet distribution over concept centers. Sampling or averaging that distribution gives a compositional concept representation. The denoising network then predicts diffusion noise using the noisy state, the timestep, and the aggregated concept center.
+  </p>
+  <p>
+    This makes concept discovery intrinsic to generation. If a center helps explain many samples, it becomes useful for denoising and generation, and the learned component can be inspected through generated prototypes and interventions.
+  </p>
+
+  <h2>Theoretical perspective</h2>
+  <p>
+    The analysis identifies two roles for the aggregated concept center. First, it shapes diffusion trajectories so concept-level information remains active along the noising path. Second, it reduces ambiguity in denoising by steering predictions toward concept-consistent explanations. Together, these effects encourage a coarse-to-fine process: early steps recover concept-level structure, and later steps refine instance-specific details.
+  </p>
+  <figure class="project-figure controlled-figure">
+    <div class="controlled-axis">high noise / concept-level recovery -> low noise / instance-level refinement</div>
+    <div class="controlled-row">
+      <span>Baseline</span>
+      <img src="assets/dcdm-controlled-dog-baseline.png" alt="Baseline reverse denoising trajectory for a dog example" />
+    </div>
+    <div class="controlled-row">
+      <span>DCDM</span>
+      <img src="assets/dcdm-controlled-dog-dcdm.png" alt="DCDM reverse denoising trajectory for a dog example" />
+    </div>
+    <div class="controlled-row">
+      <span>Baseline</span>
+      <img src="assets/dcdm-controlled-car-baseline.png" alt="Baseline reverse denoising trajectory for a car example" />
+    </div>
+    <div class="controlled-row">
+      <span>DCDM</span>
+      <img src="assets/dcdm-controlled-car-dcdm.png" alt="DCDM reverse denoising trajectory for a car example" />
+    </div>
+    <p>Matched reverse denoising trajectories from the paper's controlled-diffusion figure.</p>
+  </figure>
+
+  <h2>Why this matters</h2>
+  <div class="colored-box">
+    <p>
+      Many generative models can create realistic samples without exposing the reusable structure behind those samples. DCDM treats generation as a way to test concept discovery: if learned components are meaningful, they should organize samples, support interventions, and reflect stable visual regularities across a dataset.
+    </p>
+    <p>
+      The broader goal is a generative model whose internal organization is not only useful for synthesis, but also inspectable as conceptual knowledge.
+    </p>
+  </div>
+
+  <h2>Empirical evaluation</h2>
+  <p>
+    The evaluation asks whether discovered components behave like meaningful visual concepts rather than arbitrary internal labels. The tests cover targeted concept ablation, neighborhood coherence and predictability, and source-generation agreement across CIFAR-10, Conceptual ImageNet, CelebA, LSUN Bedroom, and LSUN Church.
+  </p>
+  <p>
+    A direct way to test whether a component is meaningful is to suppress it during generation and compare the result against a control edit. In these examples, the target edit changes the selected attribute, while the control edit keeps the image close.
+  </p>
+
+  <figure class="project-figure cac-figure">
+    <div class="cac-grid">
+      <div class="cac-example">
+        <h3>CelebA: smile</h3>
+        <div class="cac-row">
+          <span>Target</span>
+          <img src="assets/dcdm-cac-smile-target.png" alt="Target ablation sweep for a CelebA smile component" />
+        </div>
+        <div class="cac-row">
+          <span>Control</span>
+          <img src="assets/dcdm-cac-smile-control.png" alt="Control ablation sweep for a CelebA smile component" />
+        </div>
+      </div>
+
+      <div class="cac-example">
+        <h3>CelebA: gender</h3>
+        <div class="cac-row">
+          <span>Target</span>
+          <img src="assets/dcdm-cac-gender-target.png" alt="Target ablation sweep for a CelebA gender component" />
+        </div>
+        <div class="cac-row">
+          <span>Control</span>
+          <img src="assets/dcdm-cac-gender-control.png" alt="Control ablation sweep for a CelebA gender component" />
+        </div>
+      </div>
+
+      <div class="cac-example">
+        <h3>LSUN Bedroom: vibrant bedrooms</h3>
+        <div class="cac-row">
+          <span>Target</span>
+          <img src="assets/dcdm-cac-bedroom-target.png" alt="Target ablation sweep for an LSUN Bedroom vibrant bedroom component" />
+        </div>
+        <div class="cac-row">
+          <span>Control</span>
+          <img src="assets/dcdm-cac-bedroom-control.png" alt="Control ablation sweep for an LSUN Bedroom vibrant bedroom component" />
+        </div>
+      </div>
+
+      <div class="cac-example">
+        <h3>LSUN Bedroom: bedding color</h3>
+        <div class="cac-row">
+          <span>Target</span>
+          <img src="assets/dcdm-cac-bedding-target.png" alt="Target ablation sweep for an LSUN Bedroom bedding color component" />
+        </div>
+        <div class="cac-row">
+          <span>Control</span>
+          <img src="assets/dcdm-cac-bedding-control.png" alt="Control ablation sweep for an LSUN Bedroom bedding color component" />
+        </div>
+      </div>
+    </div>
+    <p>Concept ablation examples built from the paper's CAC sweeps.</p>
+  </figure>
+  <p>
+    The table below reports the main concept ablation change (CAC) and source-generation agreement (SGA) metrics. Positive lift means the inferred concept component has a stronger targeted effect than its control.
+  </p>
+
+  <div style="max-width:900px;margin:16px auto;overflow-x:auto;">
+    <table class="results-table metric-table" cellspacing="0">
+      <thead>
+        <tr>
+          <th>Dataset</th>
+          <th>CAC target ↑</th>
+          <th>CAC control ↓</th>
+          <th>CAC lift ↑</th>
+          <th>SGA match ↑</th>
+          <th>SGA mismatch ↓</th>
+          <th>SGA lift ↑</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>CIFAR-10</td>
+          <td>1.283 ± 0.004</td>
+          <td>0.069 ± 0.004</td>
+          <td>1.214 ± 0.007</td>
+          <td>0.759 ± 0.001</td>
+          <td>0.094 ± 0.000</td>
+          <td>0.665 ± 0.001</td>
+        </tr>
+        <tr>
+          <td>C-ImageNet</td>
+          <td>1.250 ± 0.003</td>
+          <td>0.356 ± 0.009</td>
+          <td>0.893 ± 0.010</td>
+          <td>0.242 ± 0.000</td>
+          <td>0.031 ± 0.000</td>
+          <td>0.211 ± 0.000</td>
+        </tr>
+        <tr>
+          <td>CelebA</td>
+          <td>0.990 ± 0.010</td>
+          <td>0.162 ± 0.001</td>
+          <td>0.828 ± 0.010</td>
+          <td>0.648 ± 0.000</td>
+          <td>0.335 ± 0.000</td>
+          <td>0.313 ± 0.000</td>
+        </tr>
+        <tr>
+          <td>LSUN Bedroom</td>
+          <td>1.017 ± 0.018</td>
+          <td>0.297 ± 0.004</td>
+          <td>0.720 ± 0.022</td>
+          <td>0.481 ± 0.001</td>
+          <td>0.314 ± 0.002</td>
+          <td>0.167 ± 0.002</td>
+        </tr>
+        <tr>
+          <td>LSUN Church</td>
+          <td>1.189 ± 0.008</td>
+          <td>0.264 ± 0.004</td>
+          <td>0.925 ± 0.007</td>
+          <td>0.360 ± 0.001</td>
+          <td>0.098 ± 0.000</td>
+          <td>0.262 ± 0.001</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:6px;text-align:center;">
+      CAC and SGA metrics from the paper.
+    </p>
+  </div>
+
+  <h2>Current scope</h2>
+  <p>
+    The number of learned components fixes the granularity of the concept space. Across moderate capacity changes the learned components remain coherent, but excessive capacity can split related structure across overlapping components. Natural next steps include adaptive concept growth and merging, and hierarchical concepts that vary across diffusion timesteps.
+  </p>
+
+  <h2>Contact</h2>
+  <p>
+    Questions? Email <a href="mailto:yg534@cornell.edu">yg534@cornell.edu</a>.
+  </p>
+</body>
+</html>
